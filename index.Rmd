@@ -42,6 +42,9 @@ opts_chunk$set(
 }
 ```
 
+#Lab 12
+
+
 ```{r, warning=FALSE,message=FALSE,echo = FALSE}
 source("process_COVID_DATA.R")
 ```
@@ -91,3 +94,55 @@ p2_scatter
 ```
 
 ## {-}
+
+
+
+# Assignment 5 
+
+```{r, warning=FALSE,message=FALSE,echo = FALSE}
+source("Mid_data.R")
+```
+
+```{r midtermplots, class.source="code-r-small"}
+
+figure1=covid_2  %>%
+plot_ly(x = ~`Age group`, y = ~PMR, 
+        type = 'scatter', mode = 'markers', color = ~State,
+        size = ~`Total Deaths`, sizes = c(2, 30), 
+         marker = list(sizemode='diameter', opacity=0.6))
+
+figure2= covid_2 %>%
+  plot_ly(x=~State , y = ~`COVID-19 Deaths`, color = ~Sex)
+
+figure3 =covid_2 %>%
+  plot_ly(x=~`Age group` , y = ~PMR, color = ~Sex) %>%
+  add_bars() %>%
+  layout(barmode = "stack") 
+
+
+```
+
+## Midterm project plots {.tabset}
+
+### Figure 1
+
+```{r PMR within different age groups by states, echo=FALSE}
+figure1
+```
+
+### Figure 2
+
+```{r Covid deaths within different sex by states, echo=FALSE}
+figure2
+```
+
+### Figure 3
+
+```{r PMR within different sex by age groups, echo=FALSE}
+figure3
+```
+
+
+
+
+
