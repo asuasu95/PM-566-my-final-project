@@ -109,16 +109,22 @@ figure1=covid_2  %>%
 plot_ly(x = ~`Age group`, y = ~PMR, 
         type = 'scatter', mode = 'markers', color = ~State,
         size = ~`Total Deaths`, sizes = c(2, 30), 
-         marker = list(sizemode='diameter', opacity=0.6))
+         marker = list(sizemode='diameter', opacity=0.6)) %>%
+  layout(title = "Age groups vs PMR by states",
+                  yaxis = list(title = "Proportionate Mortality Ratio"), xaxis = list(title = "Age groups"))
+  
 
 figure2= covid_2 %>%
-  plot_ly(x=~State , y = ~`COVID-19 Deaths`, color = ~Sex)
+  plot_ly(x=~State , y = ~`COVID-19 Deaths`, color = ~Sex) %>%
+  layout(title = "State vs COVID-19 Deaths by Sex",
+                  yaxis = list(title = "COVID-19 Deaths"), xaxis = list(title = "State"))
+  
 
 figure3 =covid_2 %>%
   plot_ly(x=~`Age group` , y = ~PMR, color = ~Sex) %>%
   add_bars() %>%
-  layout(barmode = "stack") 
-
+  layout(title = "Age group vs PMR by Sex",
+                  yaxis = list(title = "Proportionate Mortality Ratio"), xaxis = list(title = "Age group "),barmode = "stack") 
 
 ```
 
