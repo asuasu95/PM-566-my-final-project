@@ -42,7 +42,7 @@ opts_chunk$set(
 }
 ```
 
-#Lab 12
+# Lab 12
 
 
 ```{r, warning=FALSE,message=FALSE,echo = FALSE}
