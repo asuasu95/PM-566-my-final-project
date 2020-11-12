@@ -126,6 +126,24 @@ figure3 =covid_2 %>%
   layout(title = "Age group vs PMR by Sex",
                   yaxis = list(title = "Proportionate Mortality Ratio"), xaxis = list(title = "Age group "),barmode = "stack") 
 
+
+
+
+
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  lakecolor = toRGB('white')
+)
+
+figure4=plot_geo(covid_state) %>%
+  add_trace(
+    z = ~PMR, text = ~State, span = I(0),
+    locations = state.abb, locationmode = 'USA-states' , color="Reds") %>% 
+  layout(title='Covid PMR Map',
+         geo = g)
+
+
 ```
 
 ## Midterm project plots {.tabset}
@@ -148,7 +166,11 @@ figure2
 figure3
 ```
 
+### Figure 4
 
+```{r PMR Map, echo=FALSE}
+figure4
+```
 
 
 
